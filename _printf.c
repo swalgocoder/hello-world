@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	va_list ptr_args;
 	char *buffer;
 	int i, n;
-	print_format switchf[] = {
+	print_format copy_format[] = {
 		{"i", my_printnum},
 		{"c", my_printchar},
 		{"s", my_printstr},
@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 			if (format[i] == '%')
 			{
 				i++;
-				buffer = switchf[n].f(buffer, ptr_args);
+				buffer = copy_format[n].f(buffer, ptr_args);
 			}
 			n++;
 		}
